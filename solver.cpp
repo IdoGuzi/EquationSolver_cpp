@@ -146,3 +146,22 @@ solver::ComplexVariable& solver::operator-(solver::ComplexVariable& x1, complex<
 solver::ComplexVariable& solver::operator==(solver::ComplexVariable& x1, complex<double> x2){
     return x1;
 }
+
+solver::ComplexVariable& solver::operator^(complex<double> x1, solver::ComplexVariable& x2){
+    return x2;
+}
+solver::ComplexVariable& solver::operator*(complex<double> x1, solver::ComplexVariable& x2){
+    return x2;
+}
+solver::ComplexVariable& solver::operator/(complex<double> x1, solver::ComplexVariable& x2){
+    return x2;
+}
+solver::ComplexVariable& solver::operator+(complex<double> x1, solver::ComplexVariable& x2){
+    return x2;
+}
+solver::ComplexVariable& solver::operator-(complex<double> x1, solver::ComplexVariable& x2){
+    return x2;
+}
+solver::ComplexVariable& solver::operator==(complex<double> x1, solver::ComplexVariable& x2){
+    return x2;
+}

@@ -82,6 +82,13 @@ namespace solver{
         friend ComplexVariable& operator+(ComplexVariable& x1, complex<double> x2);
         friend ComplexVariable& operator-(ComplexVariable& x1, complex<double> x2);
         friend ComplexVariable& operator==(ComplexVariable& x1, complex<double> x2);
+
+        friend ComplexVariable& operator^(complex<double> x1, ComplexVariable& x2);
+        friend ComplexVariable& operator*(complex<double> x1, ComplexVariable& x2);
+        friend ComplexVariable& operator/(complex<double> x1, ComplexVariable& x2);
+        friend ComplexVariable& operator+(complex<double> x1, ComplexVariable& x2);
+        friend ComplexVariable& operator-(complex<double> x1, ComplexVariable& x2);
+        friend ComplexVariable& operator==(complex<double> x1, ComplexVariable& x2);
     };
 
     double solve(RealVariable& x);
