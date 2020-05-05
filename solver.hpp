@@ -5,40 +5,44 @@
 using namespace std;
 
 namespace solver{
+
     class RealVariable{
       private:
-        double real;
+        double a,b,c;
       public:
         // *** ctor & dtor ***
-        RealVariable() : real(1){}
-        RealVariable(double real) {this->real=real;}
+        RealVariable() : a(0),b(1),c(0){}
+        RealVariable(double a,double b,double c) {this->a=a;this->b=b;this->c=c;}
         ~RealVariable(){}
 
         // *** methods ***
-        double getReal() {return this->real;}
-        void setReal(double real) {this->real=real;}
+        double getA() const{return a;}
+        double getB() const{return b;}
+        double getC() const{return c;}
         
         //*** operators ***
-        friend RealVariable& operator^(RealVariable& x, double num);
-        friend RealVariable& operator*(RealVariable& x, double num);
-        friend RealVariable& operator/(RealVariable& x, double num);
-        friend RealVariable& operator+(RealVariable& x, double num);
-        friend RealVariable& operator-(RealVariable& x, double num);
-        friend RealVariable& operator==(RealVariable& x, double num);
+        const RealVariable operator^(const double num) const;
 
-        friend RealVariable& operator^(double num, RealVariable& x);
-        friend RealVariable& operator*(double num, RealVariable& x);
-        friend RealVariable& operator/(double num, RealVariable& x);
-        friend RealVariable& operator+(double num, RealVariable& x);
-        friend RealVariable& operator-(double num, RealVariable& x);
-        friend RealVariable& operator==(double num, RealVariable& x);
+        const RealVariable operator*(const double num) const;
+        const RealVariable operator*(const RealVariable& x) const;
+        friend RealVariable operator*(const double num, const RealVariable& x);
 
-        friend RealVariable& operator^(RealVariable& x1, RealVariable& x2);
-        friend RealVariable& operator*(RealVariable& x1, RealVariable& x2);
-        friend RealVariable& operator/(RealVariable& x1, RealVariable& x2);
-        friend RealVariable& operator+(RealVariable& x1, RealVariable& x2);
-        friend RealVariable& operator-(RealVariable& x1, RealVariable& x2);
-        friend RealVariable& operator==(RealVariable& x1, RealVariable& x2);
+        const RealVariable operator/(const double num) const;
+        const RealVariable operator/(const RealVariable& x) const;
+        friend RealVariable operator/(const double num, const RealVariable& x);
+
+
+        const RealVariable operator+(const double num) const;
+        const RealVariable operator+(const RealVariable& x) const;
+        friend RealVariable operator+(const double num, const RealVariable& x);
+
+        const RealVariable operator-(const double num) const;
+        const RealVariable operator-(const RealVariable& x) const;
+        friend RealVariable operator-(const double num, const RealVariable& x);
+
+        const RealVariable operator==(const double num) const;
+        const RealVariable operator==(const RealVariable& x) const;
+
     };
     class ComplexVariable{
       private:
@@ -90,7 +94,7 @@ namespace solver{
         friend ComplexVariable& operator-(complex<double> x1, ComplexVariable& x2);
         friend ComplexVariable& operator==(complex<double> x1, ComplexVariable& x2);
     };
+    double solve(const RealVariable& x);
 
-    double solve(RealVariable& x);
     complex<double> solve(ComplexVariable& x);
 };
